@@ -14,7 +14,7 @@ router.get("/", (req, res, next) => {
       return console.error(err);
     } else {
       res.render("employees/index", {
-        title: "Emplyoees",
+        title: "Employees",
         employees: employees,
       });
     }
@@ -23,16 +23,12 @@ router.get("/", (req, res, next) => {
 
 //  GET the Employee Details page in order to add a new employee
 router.get("/add", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+  res.render("employees/add", { title: "Add Employee", employees: employee });
 });
 
 // POST process the Employee Details page and create a new Employee - CREATE
 router.post("/add", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+
 });
 
 // GET the Employee Details page in order to edit an existing Employee

@@ -45,14 +45,14 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/oosoriodr/COMP229-F2022-MidTerm-301229160.git"
   },
   "keywords": [
     "NodeJS",
     "ExpressJS",
     "EJS"
   ],
-  "author": "Your Name Goes Here",
+  "author": "Oscar Osorio",
   "license": "ISC",
   "homepage": ""
 }
