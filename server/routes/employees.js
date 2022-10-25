@@ -28,28 +28,58 @@ router.get("/add", (req, res, next) => {
 
 // POST process the Employee Details page and create a new Employee - CREATE
 router.post("/add", (req, res, next) => {
-
+  
 });
 
 // GET the Employee Details page in order to edit an existing Employee
 router.get("/:id", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+  let id = req.params.id;
+
+  employee.findById(id, (err, employeeDetail) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.render('employees/details', { title: 'Employee Details', employees: employeeDetail });
+    }
+  });
 });
 
 // POST - process the information passed from the details form and update the document
 router.post("/:id", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+  let id = req.params.id;
+
+  let updatedEmployee = employee({
+    _id: id,
+    Employeeid: req.body.Employeeid,
+    Employeename: req.body.Employeename,
+    Department: req.body.Department,
+    Designation: req.body.Designation,
+    Salary: eq.body.Salary
+  });
+
+  contact.updateOne({ _id: id }, updatedEmployee, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.redirect("/employees");
+    }
+  });
 });
 
 // GET - process the delete by specific employeename
-router.get("/delete", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+router.get("/delete/:employeename", (req, res, next) => {
+  let name = req.params.employeename;
+
+  contact.remove({ Employeename: name }, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.redirect("/employees");
+    }
+  });
 });
 
 module.exports = router;
