@@ -1,7 +1,8 @@
 <% include ../partials/header.ejs %>
 
 <!-- MAIN CONTENT -->
-<div class="container">
+<main class="container">
+
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <h3>Employee Information</h3>
@@ -35,8 +36,12 @@
               <td class="text-center"><%= employees[count].Salary %></td>
               <td class="text-center">
                 <div class="d-grid gap-2 d-md-block">
-                  <a href="/employees/<%= employees[count]._id %>" class="btn btn-warning btn-sm" type="button">Update</a>
-                  <a href="/employees/delete/<%= employees[count].Employeename %>" class="btn btn-danger btn-sm" type="button">Delete</a>
+                  <a href="/employees/<%= employees[count]._id %>" class="btn btn-warning btn-sm" type="button">
+                    <i class="fa fa-pencil-square-o"></i> Update
+                  </a>
+                  <a href="/employees/delete/<%= employees[count].Employeename %>" class="btn btn-danger btn-sm" type="button">
+                    <i class="fa fa-trash-o"></i> Delete
+                  </a>
                 </div>
               </td>
             </tr>
@@ -45,19 +50,12 @@
         </table>
       </div>
 
-      <!-- ------------------------ -->
-      <!-- ADD the DELETE BUTTON HERE -->
-      <!-- ------------------------ -->
-
-      <a href="" class="btn btn-warning btn-sm">
-        <i class="fas fa-trash"></i> Delete</a>
-      </main>
-
       <div class="col-md-offset-1 col-md-10 text-center">
         <ul class="pagination pagination-lg pager" id="myPager"></ul>
       </div>
     </div>
   </div>
-</div>
+
+</main>
 
 <% include ../partials/footer.ejs %>
