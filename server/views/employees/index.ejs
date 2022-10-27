@@ -6,9 +6,6 @@
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <h3>Employee Information</h3>
-      <!-- ------------------------ -->
-      <!-- FIX THE ADD BUTTON BELOW -->
-      <!-- ------------------------ -->
       <a href="/employees/add" class="btn btn-primary">
         <i class="fa fa-plus"></i> Add an employee
       </a>
@@ -27,6 +24,7 @@
           </thead>
           <tbody>
             <!-- Template Row -->
+            <!-- New buttons added -->
             <% for (let count = 0; count < employees.length; count++) { %>
             <tr>
               <td><%= employees[count].Employeeid %></td>
@@ -35,6 +33,7 @@
               <td class="text-center"><%= employees[count].Designation %></td>
               <td class="text-center"><%= employees[count].Salary %></td>
               <td class="text-center">
+              
                 <div class="d-grid gap-2 d-md-block">
                   <a href="/employees/<%= employees[count]._id %>" class="btn btn-warning btn-sm" type="button">
                     <i class="fa fa-pencil-square-o"></i> Update
@@ -43,6 +42,7 @@
                     <i class="fa fa-trash-o"></i> Delete
                   </a>
                 </div>
+                
               </td>
             </tr>
             <% } %>

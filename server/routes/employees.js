@@ -28,6 +28,7 @@ router.get("/add", (req, res, next) => {
 
 // POST process the Employee Details page and create a new Employee - CREATE
 router.post("/add", (req, res, next) => {
+  // Setting object from employee model
   let newEmployee = employee({
     Employeeid: req.body.Employeeid,
     Employeename: req.body.Employeename,
@@ -41,7 +42,7 @@ router.post("/add", (req, res, next) => {
       console.log(err);
       res.end(err);
     } else {
-      // refresh the book list
+      // redirect to Employee list page
       res.redirect("/employees");
     }
   });
@@ -65,6 +66,7 @@ router.get("/:id", (req, res, next) => {
 router.post("/:id", (req, res, next) => {
   let id = req.params.id;
 
+  // Setting object from employee model
   let updatedEmployee = employee({
     _id: id,
     Employeeid: req.body.Employeeid,
